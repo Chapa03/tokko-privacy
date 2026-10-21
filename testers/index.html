@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tokko · Hazte tester / Become a tester</title>
+<meta name="description" content="Prueba Tokko antes que nadie: únete al grupo y hazte tester en Google Play.">
+<meta property="og:title" content="Hazte tester de Tokko">
+<meta property="og:description" content="Selector de dedos, ruleta, dados y vidas. Pruébalo antes que nadie en Google Play.">
+<meta property="og:image" content="https://chapa03.github.io/tokko-privacy/testers/icon.png">
+<link rel="icon" href="icon.png">
+<style>
+@font-face { font-family: "Tokko"; src: url("tokko.ttf") format("truetype"); font-display: swap; }
+:root { color-scheme: dark; --bg: #070913; --text: #e8ecff; --muted: #a9b0d4; --accent: #00f0ff; --orange: #ff9a1f; --glass: #ffffff0d; --border: #ffffff22; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(120% 70% at 50% 0%, #0d2a3a 0%, var(--bg) 60%); color: var(--text);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 520px; margin: 0 auto; padding: 28px 16px 48px; }
+.lang { display: flex; justify-content: flex-end; gap: 8px; }
+.lang button { background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+.lang button[aria-pressed="true"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+header { text-align: center; margin: 12px 0 28px; }
+header img { width: 96px; height: 96px; border-radius: 24px; box-shadow: 0 8px 32px #ff9a1f33; }
+h1 { margin: 14px 0 4px; font-size: 26px; font-weight: 700; }
+.brand { font-family: "Tokko", system-ui, sans-serif; font-weight: 400; color: var(--accent); font-size: 1.25em; }
+.lead { color: var(--muted); margin: 0; }
+ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+li { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 18px; }
+.step { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.num { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--bg); font-weight: 700; }
+h2 { margin: 0; font-size: 18px; }
+li p { margin: 0 0 14px; color: var(--muted); }
+.btn { display: block; text-align: center; text-decoration: none; font-weight: 700; padding: 14px 16px; border-radius: 14px; background: var(--accent); color: var(--bg); }
+.btn.orange { background: linear-gradient(90deg, #ffb340, var(--orange)); color: #1a0f00; }
+.note { margin-top: 22px; color: var(--muted); font-size: 14px; text-align: center; }
+.note a { color: var(--accent); }
+main [lang="en"] { display: none; }
+body.en main [lang="es"] { display: none; }
+body.en main [lang="en"] { display: revert; }
+</style></head>
+<body>
+<main>
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" data-lang="es" aria-pressed="true">Español</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+
+  <header>
+    <img src="icon.png" alt="" width="96" height="96">
+    <h1 lang="es">Hazte tester de <span class="brand">Tokko</span></h1>
+    <h1 lang="en">Become a <span class="brand">Tokko</span> tester</h1>
+    <p class="lead" lang="es">Selector de dedos, ruleta, dados y vidas. Pruébalo antes que nadie: son dos pasos y un minuto.</p>
+    <p class="lead" lang="en">Finger chooser, wheel, dice and lives. Try it before anyone else: two steps, one minute.</p>
+  </header>
+
+  <ol>
+    <li>
+      <div class="step"><span class="num">1</span>
+        <h2 lang="es">Únete al grupo</h2><h2 lang="en">Join the group</h2></div>
+      <p lang="es">Pulsa «Unirse al grupo» con la cuenta de Google que usas en Google Play.</p>
+      <p lang="en">Tap “Join group” with the Google account you use on Google Play.</p>
+      <a class="btn" href="https://groups.google.com/g/tokko-testers">
+        <span lang="es">Unirme al grupo</span><span lang="en">Join the group</span></a>
+    </li>
+    <li>
+      <div class="step"><span class="num">2</span>
+        <h2 lang="es">Hazte tester e instala</h2><h2 lang="en">Become a tester and install</h2></div>
+      <p lang="es">Pulsa «Convertirse en tester» y descarga Tokko desde Google Play.</p>
+      <p lang="en">Tap “Become a tester” and get Tokko from Google Play.</p>
+      <a class="btn orange" href="https://play.google.com/apps/testing/com.chapa.tokko">
+        <span lang="es">Hacerme tester</span><span lang="en">Become a tester</span></a>
+    </li>
+  </ol>
+
+  <p class="note" lang="es">Si el paso 2 dice que no tienes acceso, espera unos minutos tras el paso 1 y vuelve a intentarlo.<br>
+    Tokko no recoge datos personales: <a href="../">política de privacidad</a>.</p>
+  <p class="note" lang="en">If step 2 says you don’t have access, wait a few minutes after step 1 and try again.<br>
+    Tokko collects no personal data: <a href="../#en">privacy policy</a>.</p>
+</main>
+<script>
+  // Idioma: el del navegador (español o inglés), y los botones lo cambian.
+  const setLang = (lang) => {
+    document.body.classList.toggle("en", lang === "en");
+    document.documentElement.lang = lang;
+    document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  };
+  document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+  setLang((navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en");
+</script>
+</body></html>
