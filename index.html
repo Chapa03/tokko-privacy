@@ -15,9 +15,23 @@ a { color: #00f0ff; }
 ul { color: #c9cfee; margin: 0 0 12px; padding-left: 22px; }
 li { margin-bottom: 6px; }
 section + section { margin-top: 56px; padding-top: 32px; border-top: 1px solid #ffffff22; }
+@font-face { font-family: "Tokko"; src: url("testers/tokko.ttf") format("truetype"); font-display: swap; }
+.download { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; background: #ffffff0d; border: 1px solid #ffffff22; border-radius: 20px; padding: 18px; margin-bottom: 36px; }
+.download .icon { width: 72px; height: 72px; border-radius: 18px; }
+.download .info { flex: 1 1 180px; }
+.download .name { font-family: "Tokko", system-ui, sans-serif; color: #00f0ff; font-size: 30px; line-height: 1.1; margin: 0 0 6px; }
+.download .btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 12px; background: #00f0ff; color: #070913; }
+.download .qr { width: 104px; height: 104px; border-radius: 8px; border: 4px solid #fff; background: #fff; }
 </style></head>
 <body><main>
 <nav><a href="#es">Español</a><a href="#en">English</a><a href="#ca">Català</a><a href="#eu">Euskara</a><a href="#gl">Galego</a><a href="#oc">Aranés</a></nav>
+<aside class="download" id="descargar" aria-label="Descargar / Download">
+<img class="icon" src="testers/icon.png" alt="" width="72" height="72">
+<div class="info"><p class="name">Tokkon</p>
+<p style="margin:0 0 10px">Descárgala en Google Play · Get it on Google Play</p>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.chapa.tokko">Google Play</a></div>
+<img class="qr" src="play/qr.svg" alt="QR Google Play" width="104" height="104">
+</aside>
 <section id="es" lang="es"><h1>Política de privacidad de Tokko</h1><p class="date">Última actualización: 7 de noviembre de 2026</p>
 <p>Tokko es una aplicación para Android desarrollada por Chapa, desarrollador independiente. Esta política explica qué ocurre con tu información cuando usas Tokko.</p>
 <h2>1. En resumen</h2>
