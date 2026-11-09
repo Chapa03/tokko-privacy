@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sala de Tokkon Connect</title>
+<meta name="description" content="Únete a esta sala de Tokkon Connect: abre Tokkon o descárgala en Google Play.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../testers/icon.png">
+<script>
+// Enlace del QR de una sala de Tokkon Connect (https://chapa03.github.io/tokko-privacy/sala/?c=ABCD).
+// En Android abre Tokkon directamente en la sala (intent://connect/ABCD, con el paquete de Tokkon); si no
+// está instalada, el propio Android lleva a la ficha de Google Play. Si nada se abre solo, quedan los
+// botones. Con la app instalada y el enlace verificado, Android abre Tokkon sin pasar por aquí.
+(function () {
+  var id = "com.chapa.tokko";
+  var play = "https://play.google.com/store/apps/details?id=" + id;
+  var m = /[?&]c=([A-Za-z]{4})/.exec(location.search);
+  var code = m ? m[1].toUpperCase() : "";
+  window.TOKKON = { code: code, play: play,
+    app: "intent://connect/" + code + "#Intent;scheme=tokko;package=" + id + ";S.browser_fallback_url=" + encodeURIComponent(play) + ";end" };
+  if (code && /android/i.test(navigator.userAgent)) location.href = window.TOKKON.app;
+})();
+</script>
+<style>
+@font-face { font-family: "Tokko"; src: url("../testers/tokko.ttf") format("truetype"); font-display: swap; }
+:root { color-scheme: dark; --bg: #070913; --text: #e8ecff; --muted: #a9b0d4; --accent: #00f0ff; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(120% 70% at 50% 0%, #0d2a3a 0%, var(--bg) 60%); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 420px; padding: 32px 16px; text-align: center; }
+img.icon { width: 96px; height: 96px; border-radius: 24px; }
+h1 { margin: 14px 0 0; font-family: "Tokko", system-ui, sans-serif; font-weight: 400; color: var(--accent); font-size: 40px; }
+.code { font: 700 44px/1.2 ui-monospace, "JetBrains Mono", monospace; letter-spacing: .2em; margin: 8px 0 18px; }
+p { color: var(--muted); margin: 0 0 22px; }
+.btn { display: block; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 14px; margin: 10px auto; max-width: 300px; }
+.primary { background: var(--accent); color: var(--bg); }
+.ghost { border: 1px solid #ffffff33; color: var(--text); }
+[lang="en"] { display: none; }
+body.en [lang="es"] { display: none; }
+body.en [lang="en"] { display: revert; }
+</style></head>
+<body>
+<main>
+  <img class="icon" src="../testers/icon.png" alt="" width="96" height="96">
+  <h1>Tokkon Connect</h1>
+  <div class="code" id="code"></div>
+  <p lang="es">Abre Tokkon para unirte a esta sala. Si aún no la tienes, descárgala gratis y vuelve a escanear el QR.</p>
+  <p lang="en">Open Tokkon to join this room. If you don’t have it yet, get it for free and scan the QR again.</p>
+  <a class="btn primary" id="open"><span lang="es">Abrir en Tokkon</span><span lang="en">Open in Tokkon</span></a>
+  <a class="btn ghost" id="get"><span lang="es">Descargar en Google Play</span><span lang="en">Get it on Google Play</span></a>
+</main>
+<script>
+document.getElementById("code").textContent = window.TOKKON.code;
+document.getElementById("open").href = window.TOKKON.app;
+document.getElementById("get").href = window.TOKKON.play;
+if (!/^es|^ca|^eu|^gl|^oc/i.test(navigator.language || "")) document.body.classList.add("en");
+</script>
+</body></html>
