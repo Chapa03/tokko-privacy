@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sala de Tokkon Connect</title>
-<meta name="description" content="Únete a esta sala de Tokkon Connect: abre Tokkon o descárgala en Google Play.">
+<title>Sala de Tokko Connect</title>
+<meta name="description" content="Únete a esta sala de Tokko Connect: abre Tokko o descárgala en Google Play.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../testers/icon.png">
 <script>
-// Enlace del QR de una sala de Tokkon Connect (https://chapa03.github.io/tokko-privacy/sala/?c=ABCD).
-// En Android abre Tokkon directamente en la sala (intent://connect/ABCD, con el paquete de Tokkon); si no
+// Enlace del QR de una sala de Tokko Connect (https://chapa03.github.io/tokko-privacy/sala/?c=ABCD).
+// En Android abre Tokko directamente en la sala (intent://connect/ABCD, con el paquete de Tokko); si no
 // está instalada, el propio Android lleva a la ficha de Google Play. Si nada se abre solo, quedan los
-// botones. Con la app instalada y el enlace verificado, Android abre Tokkon sin pasar por aquí.
+// botones. Con la app instalada y el enlace verificado, Android abre Tokko sin pasar por aquí.
 (function () {
   var id = "com.chapa.tokko";
   var play = "https://play.google.com/store/apps/details?id=" + id;
   var m = /[?&]c=([A-Za-z]{4})/.exec(location.search);
   var code = m ? m[1].toUpperCase() : "";
-  window.TOKKON = { code: code, play: play,
+  window.TOKKO = { code: code, play: play,
     app: "intent://connect/" + code + "#Intent;scheme=tokko;package=" + id + ";S.browser_fallback_url=" + encodeURIComponent(play) + ";end" };
-  if (code && /android/i.test(navigator.userAgent)) location.href = window.TOKKON.app;
+  if (code && /android/i.test(navigator.userAgent)) location.href = window.TOKKO.app;
 })();
 </script>
 <style>
@@ -39,17 +39,17 @@ body.en [lang="en"] { display: revert; }
 <body>
 <main>
   <img class="icon" src="../testers/icon.png" alt="" width="96" height="96">
-  <h1>Tokkon Connect</h1>
+  <h1>Tokko Connect</h1>
   <div class="code" id="code"></div>
-  <p lang="es">Abre Tokkon para unirte a esta sala. Si aún no la tienes, descárgala gratis y vuelve a escanear el QR.</p>
-  <p lang="en">Open Tokkon to join this room. If you don’t have it yet, get it for free and scan the QR again.</p>
-  <a class="btn primary" id="open"><span lang="es">Abrir en Tokkon</span><span lang="en">Open in Tokkon</span></a>
+  <p lang="es">Abre Tokko para unirte a esta sala. Si aún no la tienes, descárgala gratis y vuelve a escanear el QR.</p>
+  <p lang="en">Open Tokko to join this room. If you don’t have it yet, get it for free and scan the QR again.</p>
+  <a class="btn primary" id="open"><span lang="es">Abrir en Tokko</span><span lang="en">Open in Tokko</span></a>
   <a class="btn ghost" id="get"><span lang="es">Descargar en Google Play</span><span lang="en">Get it on Google Play</span></a>
 </main>
 <script>
-document.getElementById("code").textContent = window.TOKKON.code;
-document.getElementById("open").href = window.TOKKON.app;
-document.getElementById("get").href = window.TOKKON.play;
+document.getElementById("code").textContent = window.TOKKO.code;
+document.getElementById("open").href = window.TOKKO.app;
+document.getElementById("get").href = window.TOKKO.play;
 if (!/^es|^ca|^eu|^gl|^oc/i.test(navigator.language || "")) document.body.classList.add("en");
 </script>
 </body></html>
